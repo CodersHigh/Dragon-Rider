@@ -188,6 +188,7 @@
 		CE486A1D177BADA60053C537 /* IntroLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE486A1C177BADA60053C537 /* IntroLayer.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CE486A20177BADA60053C537 /* GLES-Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE486A1F177BADA60053C537 /* GLES-Render.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CE486A22177BADA60053C537 /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = CE486A21177BADA60053C537 /* blocks.png */; };
+		CE486A2D177BB1750053C537 /* MenuLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE486A2C177BB1750053C537 /* MenuLayer.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -569,6 +570,8 @@
 		CE486A1E177BADA60053C537 /* GLES-Render.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
 		CE486A1F177BADA60053C537 /* GLES-Render.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "GLES-Render.mm"; sourceTree = "<group>"; };
 		CE486A21177BADA60053C537 /* blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blocks.png; path = Resources/blocks.png; sourceTree = "<group>"; };
+		CE486A2B177BB1750053C537 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
+		CE486A2C177BB1750053C537 /* MenuLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuLayer.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -637,6 +640,8 @@
 				CE486A1C177BADA60053C537 /* IntroLayer.mm */,
 				CE486A1E177BADA60053C537 /* GLES-Render.h */,
 				CE486A1F177BADA60053C537 /* GLES-Render.mm */,
+				CE486A2B177BB1750053C537 /* MenuLayer.h */,
+				CE486A2C177BB1750053C537 /* MenuLayer.mm */,
 				CE4867F2177BADA40053C537 /* Resources */,
 				CE48680A177BADA40053C537 /* libs */,
 				CE486A11177BADA60053C537 /* Supporting Files */,
@@ -1416,6 +1421,7 @@
 				CE486A1A177BADA60053C537 /* HelloWorldLayer.mm in Sources */,
 				CE486A1D177BADA60053C537 /* IntroLayer.mm in Sources */,
 				CE486A20177BADA60053C537 /* GLES-Render.mm in Sources */,
+				CE486A2D177BB1750053C537 /* MenuLayer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
