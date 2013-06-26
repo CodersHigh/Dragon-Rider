@@ -189,6 +189,11 @@
 		CE486A20177BADA60053C537 /* GLES-Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE486A1F177BADA60053C537 /* GLES-Render.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CE486A22177BADA60053C537 /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = CE486A21177BADA60053C537 /* blocks.png */; };
 		CE486A2D177BB1750053C537 /* MenuLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE486A2C177BB1750053C537 /* MenuLayer.mm */; };
+		CE486A30177BB43B0053C537 /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE486A2F177BB43B0053C537 /* GameLayer.mm */; };
+		CE486A33177BB44A0053C537 /* GameScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE486A32177BB44A0053C537 /* GameScene.mm */; };
+		CE486A3D177BB56E0053C537 /* background-5hd.png in Resources */ = {isa = PBXBuildFile; fileRef = CE486A3A177BB56E0053C537 /* background-5hd.png */; };
+		CE486A3E177BB56E0053C537 /* background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = CE486A3B177BB56E0053C537 /* background-hd.png */; };
+		CE486A3F177BB56E0053C537 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = CE486A3C177BB56E0053C537 /* background.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -572,6 +577,13 @@
 		CE486A21177BADA60053C537 /* blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blocks.png; path = Resources/blocks.png; sourceTree = "<group>"; };
 		CE486A2B177BB1750053C537 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
 		CE486A2C177BB1750053C537 /* MenuLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuLayer.mm; sourceTree = "<group>"; };
+		CE486A2E177BB43B0053C537 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
+		CE486A2F177BB43B0053C537 /* GameLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameLayer.mm; sourceTree = "<group>"; };
+		CE486A31177BB44A0053C537 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		CE486A32177BB44A0053C537 /* GameScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameScene.mm; sourceTree = "<group>"; };
+		CE486A3A177BB56E0053C537 /* background-5hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-5hd.png"; sourceTree = "<group>"; };
+		CE486A3B177BB56E0053C537 /* background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-hd.png"; sourceTree = "<group>"; };
+		CE486A3C177BB56E0053C537 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -642,6 +654,10 @@
 				CE486A1F177BADA60053C537 /* GLES-Render.mm */,
 				CE486A2B177BB1750053C537 /* MenuLayer.h */,
 				CE486A2C177BB1750053C537 /* MenuLayer.mm */,
+				CE486A31177BB44A0053C537 /* GameScene.h */,
+				CE486A32177BB44A0053C537 /* GameScene.mm */,
+				CE486A2E177BB43B0053C537 /* GameLayer.h */,
+				CE486A2F177BB43B0053C537 /* GameLayer.mm */,
 				CE4867F2177BADA40053C537 /* Resources */,
 				CE48680A177BADA40053C537 /* libs */,
 				CE486A11177BADA60053C537 /* Supporting Files */,
@@ -652,6 +668,9 @@
 		CE4867F2177BADA40053C537 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE486A3A177BB56E0053C537 /* background-5hd.png */,
+				CE486A3B177BB56E0053C537 /* background-hd.png */,
+				CE486A3C177BB56E0053C537 /* background.png */,
 				CE4867F3177BADA40053C537 /* Default.png */,
 				CE4867F5177BADA40053C537 /* Default@2x.png */,
 				CE4867F7177BADA40053C537 /* Default-568h@2x.png */,
@@ -1253,6 +1272,9 @@
 				CE486809177BADA40053C537 /* iTunesArtwork in Resources */,
 				CE486962177BADA60053C537 /* ChangeLog in Resources */,
 				CE486A22177BADA60053C537 /* blocks.png in Resources */,
+				CE486A3D177BB56E0053C537 /* background-5hd.png in Resources */,
+				CE486A3E177BB56E0053C537 /* background-hd.png in Resources */,
+				CE486A3F177BB56E0053C537 /* background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1422,6 +1444,8 @@
 				CE486A1D177BADA60053C537 /* IntroLayer.mm in Sources */,
 				CE486A20177BADA60053C537 /* GLES-Render.mm in Sources */,
 				CE486A2D177BB1750053C537 /* MenuLayer.mm in Sources */,
+				CE486A30177BB43B0053C537 /* GameLayer.mm in Sources */,
+				CE486A33177BB44A0053C537 /* GameScene.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,7 @@
 //
 
 #import "MenuLayer.h"
-
+#import "GameScene.h"
 
 @implementation MenuLayer
 
@@ -46,7 +46,8 @@
     [CCMenuItemFont setFontName:@"AppleSDGothicNeo-Medium"];
     //메뉴 아이템 블럭
     CCMenuItem *startItem = [CCMenuItemFont itemWithString:@"Start" block:^(id sender)  {
-      
+      //Start 메뉴 버튼이 눌렸을 경우, GameScene을 화면 전환과 함께 호출한다.
+      [[CCDirector sharedDirector] replaceScene:[GameScene node]];
     }];
     
     //메뉴 버튼을 메뉴에 추가한다.
