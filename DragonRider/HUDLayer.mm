@@ -15,8 +15,10 @@
 {
   self = [super init];
   if (self) {
-    //레이블의 초기값을 0M 으로 한다. 시스템 폰트 사용
-    scoreLabel = [CCLabelTTF labelWithString:@"0M" fontName:@"Arial" fontSize:20];
+//    //레이블의 초기값을 0M 으로 한다. 시스템 폰트 사용
+//    scoreLabel = [CCLabelTTF labelWithString:@"0M" fontName:@"Arial" fontSize:20];
+    //레이블의 초기값을 0M 으로 한다. 비트맵 폰트 사용
+    scoreLabel = [CCLabelBMFont labelWithString:@"0M" fntFile:@"font.fnt"];
     //위치를 정한다.
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     scoreLabel.position = ccp(280, winSize.height - 30);

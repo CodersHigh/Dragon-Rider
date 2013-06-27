@@ -10,7 +10,8 @@
 #import "cocos2d.h"
 
 @interface HUDLayer : CCLayer {
-  CCLabelTTF *scoreLabel; // 점수를 위한 레이블
+//  CCLabelTTF *scoreLabel; // 점수를 위한 레이블
+  CCLabelBMFont *scoreLabel; // 점수를 위한 레이블
 }
 
 -(void)setScoreText:(int)score;
