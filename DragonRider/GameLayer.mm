@@ -8,6 +8,7 @@
 
 #import "GameLayer.h"
 #import "Enemy.h"
+#import "Bullet.h"
 
 @implementation GameLayer
 
@@ -17,6 +18,16 @@
   if (self) {
     //윈도우 화면 크기를 가져온다.
     winSize = [[CCDirector sharedDirector] winSize];
+    
+    //마지막 총알 번호를 위해 초기화
+    lastBullet = 0;
+    
+    //총알을 위해 배치노드 사용
+    _batchNode = [CCSpriteBatchNode batchNodeWithFile:@"dragonRideSprite.pvr.ccz"];
+    [self addChild:_batchNode];
+    
+    //스프라이트 프레임 케쉬에 스프라이트를 저장한다.
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"dragonRideSprite.plist"];
     
     //스프라이트 프레임 캐쉬에 스프라이트를 저장한다.
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"dragonRideSprite.plist"];
@@ -29,6 +40,9 @@
     
     //적 초기화
     [self initEnemys];
+    
+    //총알 초기화
+    [self initBullet];
   }
   return self;
 }
@@ -92,12 +106,34 @@
   }
 }
 
+#define kMaxBullet 30
+
+-(void)initBullet {
+  //총알 갯수의 크기로 배열을 만든다.
+  bulletsArray = [[CCArray alloc] initWithCapacity:kMaxBullet];
+  //총알 갯수만큼 배열에 넣는다.
+  for (int i = 0; i < kMaxBullet; i++) {
+    //총알 노드를 생성
+    Bullet *bullet = [Bullet node];
+    //처음에는 안 보이는 상태로 만든다.
+    bullet.visible = NO;
+    //총알의 위치는 플레이어 캐릭터의 앞에 위치.
+    bullet.position = ccp(_player.position.x, _player.position.y + _player.boundingBox.size.height / 2);
+    //배치노드에 넣는다.
+    [_batchNode addChild:bullet z:99];
+    //충돌 등 계산을 쉽게 하기 위해 배열에 넣는다.
+    [bulletsArray addObject:bullet];
+  }
+}
+
 - (void)onEnter {
   [super onEnter];
   //배경 움직임을 위한 메인 스케쥴
   [self scheduleUpdate];
   //터치 이벤트를 받는다.
   [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+  //총알을 위한 스케쥴
+  [self schedule:@selector(updateBullet:) interval:0.05f];
 }
 
 #pragma mark Touch
@@ -125,6 +161,19 @@
 
 -(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
   //터치가 끝났을때는 특별한 이벤트가 없다.
+}
+
+-(void)updateBullet:(ccTime)dt {
+  //배열에서 하나씩 총알을 꺼낸다.
+  Bullet *bullet = (Bullet*)[bulletsArray objectAtIndex:lastBullet];
+  //움직일때는 보이게 설정
+  bullet.visible = YES;
+  //총알의 위치는 플레이어 캐릭터의 앞에 위치.
+  bullet.position = ccp(_player.position.x, _player.position.y + _player.boundingBox.size.height / 2);
+  //마지막 총알이 배열의 마지막이면 다시 초기화 한다.
+  if (++lastBullet == kMaxBullet) {
+    lastBullet = 0;
+  }
 }
 
 @end

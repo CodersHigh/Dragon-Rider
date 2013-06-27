@@ -19,6 +19,12 @@
   
   //적을 담을 배열
   CCArray *enemysArray;
+
+  //총알을 담을 배열
+  CCArray *bulletsArray;
+  //마지막 총알 확인용
+  int lastBullet;
+
 }
 
 //두 장의 배경 스프라이트
@@ -26,4 +32,7 @@
 @property (nonatomic, weak) CCSprite *backgroundImage2;
 //플레이어 캐릭터 스프라이트
 @property (nonatomic, weak) Player *player;
+//배치노드
+@property (nonatomic, weak) CCSpriteBatchNode *batchNode;
+
 @end
