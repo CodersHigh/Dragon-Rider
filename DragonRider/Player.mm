@@ -69,4 +69,16 @@
   [self schedule:@selector(updateWings:) interval:0.2];
 }
 
+#define PTM_RATIO 16
+
+-(void) createBox2dObject:(b2World*)world {
+  b2BodyDef playerBodyDef;
+	playerBodyDef.type = b2_dynamicBody;
+	playerBodyDef.position.Set(self.position.x/PTM_RATIO, self.position.y/PTM_RATIO);
+	playerBodyDef.userData = (__bridge void*)self;
+	playerBodyDef.fixedRotation = true;
+  
+	_body = world->CreateBody(&playerBodyDef);
+}
+
 @end

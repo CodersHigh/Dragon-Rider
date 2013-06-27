@@ -10,6 +10,8 @@
 #import "cocos2d.h"
 #import "Player.h"
 #import "HUDLayer.h"
+#import "Box2D.h"
+#import "MyContactListener.h"
 
 @interface GameLayer : CCLayer {
   //화면 크기를 저장
@@ -31,6 +33,10 @@
   
   //점수를 위한 변수
   int score;
+  
+  //Box2D를 위한 변수
+  b2World* world;
+  MyContactListener *contactListener;
 }
 
 //두 장의 배경 스프라이트
@@ -41,5 +47,7 @@
 //배치노드
 @property (nonatomic, weak) CCSpriteBatchNode *batchNode;
 @property (nonatomic, weak) HUDLayer *hud;
+
+-(void)collisionPlayerWithEnemy;
 
 @end
