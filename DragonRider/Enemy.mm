@@ -159,4 +159,16 @@
   }
 }
 
+#define PTM_RATIO 16
+
+-(void) createBox2dObject:(b2World*)world {
+  b2BodyDef enemyBodyDef;
+	enemyBodyDef.type = b2_dynamicBody;
+	enemyBodyDef.position.Set(self.position.x/PTM_RATIO, self.position.y/PTM_RATIO);
+	enemyBodyDef.userData = (__bridge void*)self;
+	enemyBodyDef.fixedRotation = true;
+  
+	_body = world->CreateBody(&enemyBodyDef);
+}
+
 @end

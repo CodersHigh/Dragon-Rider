@@ -206,6 +206,9 @@
 		CE486A4C177BBAEC0053C537 /* Enemy.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE486A4B177BBAEC0053C537 /* Enemy.mm */; };
 		CE486A4F177BBCEC0053C537 /* Bullet.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE486A4E177BBCEC0053C537 /* Bullet.mm */; };
 		CE486A52177BBFDF0053C537 /* EnergyGauge.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE486A51177BBFDF0053C537 /* EnergyGauge.mm */; };
+		CE98CAE6177C34F40010429D /* GB2ShapeCache.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE98CAE5177C34F40010429D /* GB2ShapeCache.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CE98CAE8177C35860010429D /* collision.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE98CAE7177C35860010429D /* collision.plist */; };
+		CE98CAEB177C35C40010429D /* MyContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE98CAE9177C35C40010429D /* MyContactListener.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -614,6 +617,11 @@
 		CE486A4E177BBCEC0053C537 /* Bullet.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Bullet.mm; sourceTree = "<group>"; };
 		CE486A50177BBFDE0053C537 /* EnergyGauge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnergyGauge.h; sourceTree = "<group>"; };
 		CE486A51177BBFDF0053C537 /* EnergyGauge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EnergyGauge.mm; sourceTree = "<group>"; };
+		CE98CAE4177C34F40010429D /* GB2ShapeCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GB2ShapeCache.h; sourceTree = "<group>"; };
+		CE98CAE5177C34F40010429D /* GB2ShapeCache.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GB2ShapeCache.mm; sourceTree = "<group>"; };
+		CE98CAE7177C35860010429D /* collision.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = collision.plist; sourceTree = "<group>"; };
+		CE98CAE9177C35C40010429D /* MyContactListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MyContactListener.mm; sourceTree = "<group>"; };
+		CE98CAEA177C35C40010429D /* MyContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyContactListener.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -637,6 +645,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE1782FE177C33E900B566E2 /* generic-box2d-plist */ = {
+			isa = PBXGroup;
+			children = (
+				CE98CAE4177C34F40010429D /* GB2ShapeCache.h */,
+				CE98CAE5177C34F40010429D /* GB2ShapeCache.mm */,
+			);
+			name = "generic-box2d-plist";
+			sourceTree = "<group>";
+		};
 		CE4867D1177BADA40053C537 = {
 			isa = PBXGroup;
 			children = (
@@ -674,6 +691,7 @@
 		CE4867F1177BADA40053C537 /* DragonRider */ = {
 			isa = PBXGroup;
 			children = (
+				CE1782FE177C33E900B566E2 /* generic-box2d-plist */,
 				CE486A15177BADA60053C537 /* AppDelegate.h */,
 				CE486A16177BADA60053C537 /* AppDelegate.mm */,
 				CE486A18177BADA60053C537 /* HelloWorldLayer.h */,
@@ -700,6 +718,8 @@
 				CE454A80177BE845008155C9 /* Dust.mm */,
 				CE1782F3177C318F00B566E2 /* HUDLayer.h */,
 				CE1782F4177C318F00B566E2 /* HUDLayer.mm */,
+				CE98CAEA177C35C40010429D /* MyContactListener.h */,
+				CE98CAE9177C35C40010429D /* MyContactListener.mm */,
 				CE4867F2177BADA40053C537 /* Resources */,
 				CE48680A177BADA40053C537 /* libs */,
 				CE486A11177BADA60053C537 /* Supporting Files */,
@@ -710,6 +730,7 @@
 		CE4867F2177BADA40053C537 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE98CAE7177C35860010429D /* collision.plist */,
 				CE1782F6177C337400B566E2 /* background_music.mp3 */,
 				CE1782F7177C337400B566E2 /* explosion.wav */,
 				CE1782F8177C337400B566E2 /* mon_damage.wav */,
@@ -1329,6 +1350,7 @@
 				CE1782FB177C337400B566E2 /* explosion.wav in Resources */,
 				CE1782FC177C337400B566E2 /* mon_damage.wav in Resources */,
 				CE1782FD177C337400B566E2 /* mon_die.wav in Resources */,
+				CE98CAE8177C35860010429D /* collision.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1506,6 +1528,8 @@
 				CE486A52177BBFDF0053C537 /* EnergyGauge.mm in Sources */,
 				CE454A81177BE845008155C9 /* Dust.mm in Sources */,
 				CE1782F5177C318F00B566E2 /* HUDLayer.mm in Sources */,
+				CE98CAE6177C34F40010429D /* GB2ShapeCache.mm in Sources */,
+				CE98CAEB177C35C40010429D /* MyContactListener.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
