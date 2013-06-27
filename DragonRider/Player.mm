@@ -1,0 +1,48 @@
+//
+//  Player.mm
+//  DragonRider
+//
+//  Created by Steve Yeom on 6/27/13.
+//  Copyright 2013 Appilogue. All rights reserved.
+//
+
+#import "Player.h"
+
+
+@implementation Player
+
+- (id)init
+{
+  //플레이어 몸통의 스프라이트를 생성한다.
+  self = [super initWithSpriteFrameName:@"player.png"];
+  if (self) {
+    //윈도우 크기 값
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    
+    //화면의 가운데 아래측에 위치 시킨다.
+    self.position = ccp( winSize.width/2, 50 );
+    
+    //왼쪽 날개를 만든다.
+    _leftWing = [CCSprite spriteWithSpriteFrameName:@"player_wing.png"];
+    //날개 펄럭이는 애니메이션을 위해서 날개의 엥커포인트를 우측 상단으로 한다.
+    _leftWing.anchorPoint = ccp( 1.0, 1.0 );
+    //중간 정도로 위치 시킨다.
+    _leftWing.position = ccp( 5, 60 );
+    //날개가 몸통아래에 위치 하도록 z-order를 변경한다.
+    [self addChild:_leftWing z:-1];
+    
+    //오른쪽 날개를 만든다.
+    _rightWing = [CCSprite spriteWithSpriteFrameName:@"player_wing.png"];
+    //날개 펄럭이는 애니메이션을 위해서 날개의 엥커포인트를 촤측 상단으로 한다.
+    _rightWing.anchorPoint = ccp( 0.0, 1.0 );
+    //Flip 회전 시킨다.
+    [_rightWing setFlipX:YES];
+    //Flip 회전 하면 축으로 회전 된다. 그래서 몸통의 가로만큼 추가해준다.
+    _rightWing.position = ccp( self.boundingBox.size.width - 5, 60 );
+    //날개가 몸통아래에 위치 하도록 z-order를 변경한다.
+    [self addChild:_rightWing z:-1];
+  }
+  return self;
+}
+
+@end

@@ -194,6 +194,9 @@
 		CE486A3D177BB56E0053C537 /* background-5hd.png in Resources */ = {isa = PBXBuildFile; fileRef = CE486A3A177BB56E0053C537 /* background-5hd.png */; };
 		CE486A3E177BB56E0053C537 /* background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = CE486A3B177BB56E0053C537 /* background-hd.png */; };
 		CE486A3F177BB56E0053C537 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = CE486A3C177BB56E0053C537 /* background.png */; };
+		CE486A42177BB78F0053C537 /* dragonRideSprite.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE486A40177BB78F0053C537 /* dragonRideSprite.plist */; };
+		CE486A43177BB78F0053C537 /* dragonRideSprite.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = CE486A41177BB78F0053C537 /* dragonRideSprite.pvr.ccz */; };
+		CE486A46177BB7F90053C537 /* Player.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE486A45177BB7F90053C537 /* Player.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -584,6 +587,10 @@
 		CE486A3A177BB56E0053C537 /* background-5hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-5hd.png"; sourceTree = "<group>"; };
 		CE486A3B177BB56E0053C537 /* background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-hd.png"; sourceTree = "<group>"; };
 		CE486A3C177BB56E0053C537 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		CE486A40177BB78F0053C537 /* dragonRideSprite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dragonRideSprite.plist; sourceTree = "<group>"; };
+		CE486A41177BB78F0053C537 /* dragonRideSprite.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = dragonRideSprite.pvr.ccz; sourceTree = "<group>"; };
+		CE486A44177BB7F90053C537 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		CE486A45177BB7F90053C537 /* Player.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Player.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -658,6 +665,8 @@
 				CE486A32177BB44A0053C537 /* GameScene.mm */,
 				CE486A2E177BB43B0053C537 /* GameLayer.h */,
 				CE486A2F177BB43B0053C537 /* GameLayer.mm */,
+				CE486A44177BB7F90053C537 /* Player.h */,
+				CE486A45177BB7F90053C537 /* Player.mm */,
 				CE4867F2177BADA40053C537 /* Resources */,
 				CE48680A177BADA40053C537 /* libs */,
 				CE486A11177BADA60053C537 /* Supporting Files */,
@@ -668,6 +677,8 @@
 		CE4867F2177BADA40053C537 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE486A40177BB78F0053C537 /* dragonRideSprite.plist */,
+				CE486A41177BB78F0053C537 /* dragonRideSprite.pvr.ccz */,
 				CE486A3A177BB56E0053C537 /* background-5hd.png */,
 				CE486A3B177BB56E0053C537 /* background-hd.png */,
 				CE486A3C177BB56E0053C537 /* background.png */,
@@ -1275,6 +1286,8 @@
 				CE486A3D177BB56E0053C537 /* background-5hd.png in Resources */,
 				CE486A3E177BB56E0053C537 /* background-hd.png in Resources */,
 				CE486A3F177BB56E0053C537 /* background.png in Resources */,
+				CE486A42177BB78F0053C537 /* dragonRideSprite.plist in Resources */,
+				CE486A43177BB78F0053C537 /* dragonRideSprite.pvr.ccz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1446,6 +1459,7 @@
 				CE486A2D177BB1750053C537 /* MenuLayer.mm in Sources */,
 				CE486A30177BB43B0053C537 /* GameLayer.mm in Sources */,
 				CE486A33177BB44A0053C537 /* GameScene.mm in Sources */,
+				CE486A46177BB7F90053C537 /* Player.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

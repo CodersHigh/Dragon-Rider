@@ -18,8 +18,14 @@
     //윈도우 화면 크기를 가져온다.
     winSize = [[CCDirector sharedDirector] winSize];
     
+    //스프라이트 프레임 캐쉬에 스프라이트를 저장한다.
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"dragonRideSprite.plist"];
+    
     //배경 초기화
     [self initBackground];
+    
+    //플레이어 캐릭터 초기화
+    [self initPlayer];
   }
   return self;
 }
@@ -55,10 +61,46 @@
   }
 }
 
+- (void)initPlayer {
+  //플레이어 캐릭터를 생성한다.
+  _player = [Player node];
+  //가장 위에 위치 시킨다.
+  [self addChild:_player z:99];
+}
+
 - (void)onEnter {
   [super onEnter];
   //배경 움직임을 위한 메인 스케쥴
   [self scheduleUpdate];
+  //터치 이벤트를 받는다.
+  [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+}
+
+#pragma mark Touch
+
+-(BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+  //터치가 시작되면 이전 값과 비교를 위해 저장한다. UI좌표계를 cocos 좌표계로 변환
+  previousPoint = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
+  return YES;
+}
+
+-(void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
+  // 이전 값과 비교를 위한 움직였을때 위치 값. UI좌표계를 cocos 좌표계로 변환
+  CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
+  //플레이어 캐릭터의 위치를 계산한다. ( 기존 위치 X축 값 - 움직인 거리 ), Y축 값은 동일
+  _player.position = ccp( _player.position.x - (previousPoint.x - location.x) * 2, _player.position.y );
+  //왼쪽이나 오른쪽으로 벗어나면 넘어가지 않도록 고정 시킨다.
+  if (_player.position.x < 0) {
+    _player.position = ccp(0, _player.position.y);
+  } else if (_player.position.x > winSize.width) {
+    _player.position = ccp(winSize.width, _player.position.y);
+  }
+  //현재 위치를 이전 값으로 저장한다.
+  previousPoint = location;
+}
+
+-(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
+  //터치가 끝났을때는 특별한 이벤트가 없다.
 }
 
 @end
