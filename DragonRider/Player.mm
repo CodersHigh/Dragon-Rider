@@ -45,4 +45,28 @@
   return self;
 }
 
+-(void)updateWings:(ccTime)dt{
+  //왼쪽 날개 애니메이션을 위한 날개 내렸다 올리기
+  CCRotateTo *leftWingDown = [CCRotateTo actionWithDuration:0.2 angleX:-30 angleY:60];
+  CCRotateTo *leftWingUp = [CCRotateTo actionWithDuration:0.2 angleX:0 angleY:0];
+  //오른쪽 날개 애니메이션을 위한 날개 내렸다 올리기
+  CCRotateTo *rightWingDown = [CCRotateTo actionWithDuration:0.2 angleX:30 angleY:-60];
+  CCRotateTo *rightWingUp = [CCRotateTo actionWithDuration:0.2 angleX:0 angleY:0];
+  
+  //날개짓을 번갈아 가기 위해
+  if ( (wingDown = !wingDown) ){
+    [_leftWing runAction:leftWingDown];
+    [_rightWing runAction:rightWingDown];
+  }else{
+    [_leftWing runAction:leftWingUp];
+    [_rightWing runAction:rightWingUp];
+  }
+}
+
+-(void)onEnter{
+  [super onEnter];
+  // 날개짓을 위한 0.2초 마다 메소드 호출
+  [self schedule:@selector(updateWings:) interval:0.2];
+}
+
 @end

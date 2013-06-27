@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 
 @interface Player : CCSprite {
-    
+  BOOL wingDown;
 }
 
 @property (nonatomic, weak) CCSprite *leftWing;

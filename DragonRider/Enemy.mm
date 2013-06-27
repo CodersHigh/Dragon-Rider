@@ -114,6 +114,8 @@
   [super onEnter];
   //스케쥴러 호출
   [self scheduleUpdate];
+  //날개짓을 위한 0.2초 마다 메소드 호출
+  [self schedule:@selector(updateWings:) interval:0.2];
 }
 
 -(NSInteger)attackedWithPoint:(NSInteger)point {
@@ -138,6 +140,23 @@
   _energy = 0;
   //그리고 숨긴다.
   self.visible = NO;
+}
+
+-(void)updateWings:(ccTime)dt {
+  //왼쪽 오른쪽 날개짓을 위환 회전
+  CCRotateTo *leftWingDown = [CCRotateTo actionWithDuration:0.2 angle:-80];
+  CCRotateTo *leftWingUp = [CCRotateTo actionWithDuration:0.2 angle:0];
+  CCRotateTo *rightWingDown = [CCRotateTo actionWithDuration:0.2 angle:80];
+  CCRotateTo *rightWingUp = [CCRotateTo actionWithDuration:0.2 angle:0];
+  
+  //번갈아 가면서 날개짓을 한다.
+  if ( (wingDown = !wingDown) ){
+    [_leftWing runAction:leftWingDown];
+    [_rightWing runAction:rightWingDown];
+  }else{
+    [_leftWing runAction:leftWingUp];
+    [_rightWing runAction:rightWingUp];
+  }
 }
 
 @end

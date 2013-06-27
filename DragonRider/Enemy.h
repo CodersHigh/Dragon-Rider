@@ -23,7 +23,7 @@ typedef enum {
 } State;
 
 @interface Enemy : CCSprite {
-  
+  BOOL wingDown;
 }
 
 //적의 종류 : 약한놈과 강한놈으로 두 가지로만 구분
