@@ -83,38 +83,53 @@
 }
 
 -(void)animateDusts{
-  //애니메이션을 위해서 먼지를 세팅
-  for (CCSprite *dust in dusts) {
-    //숨긴 이미지를 다시 보이게 함
-    dust.visible = YES;
-    
-    //10개의 이미지의 크기를 랜덤으로 가져옴
-    float scaleRandom = 0.1 + ( (double)arc4random() / (double)0xffffffff );
-    //0.3 초 시간동안 크기 변경 애니메이션
-    CCScaleTo *scale = [CCScaleTo actionWithDuration:0.3 scale:scaleRandom];
-    
-    // 터지는 x위치를 위해서 랜덤 값 1 or -1
-    int x = ( (double)arc4random() / (double)0xffffffff ) < 0.5 ? -1 : +1;
-    float xRandom = 5 + 4 * ( ((double)arc4random()/(double)0xffffffff) * 10 * x );
-    // 터지는 y위치를 위해서 랜덤 값 1 or -1
-    int y = ( (double)arc4random() / (double)0xffffffff ) < 0.5 ? -1 : +1;
-    float yRandom = -30 + 4 * ( ((double)arc4random() / (double)0xffffffff ) * 10 * y );
-    
-    //0.3 초 시간동안 위치 변경 애니메이션
-    CCMoveTo *move = [CCMoveTo actionWithDuration:0.3 position:ccp(xRandom, yRandom)];
-    
-    //애니메이션이 끝나면 숨기고 자신은 삭제를 위해서 블럭 함수 생성
-    CCCallBlock *block = [CCCallBlock actionWithBlock:^{
-      dust.visible = NO;
-      [self removeFromParentAndCleanup:YES];
-    }];
-    
-    //움직임 애니메이션이 끝나면 block을 순차적으로 실행하기 위한 시퀀시 생성
-    CCSequence *seq = [CCSequence actions:move, block, nil];
-    //runAction은 연이어 하면 동시에 크기와 움직임 엑션이 일어난다.
-    [dust runAction:scale];
-    [dust runAction:seq];
-  }
+  //Autorelease 부분 삭제
+  CCParticleSystem *particle = [CCParticleSystemQuad particleWithTotalParticles:1000];
+  
+  //이미지 이름 변경
+  CCTexture2D *texture=[[CCTextureCache sharedTextureCache] addImage:@"particle.png"];
+  particle.texture=texture;
+  particle.emissionRate=2000.00;
+  particle.angle=90.0;
+  particle.angleVar=360.0;
+  ccBlendFunc blendFunc={GL_ONE,GL_ONE_MINUS_SRC_ALPHA};
+  particle.blendFunc=blendFunc;
+  particle.duration=0.05;
+  particle.emitterMode=kCCParticleModeGravity;
+  ccColor4F startColor={0.70,0.10,0.20,1.00};
+  particle.startColor=startColor;
+  ccColor4F startColorVar={0.50,0.50,0.50,0.00};
+  particle.startColorVar=startColorVar;
+  ccColor4F endColor={0.50,0.50,0.50,0.00};
+  particle.endColor=endColor;
+  ccColor4F endColorVar={0.50,0.50,0.50,0.00};
+  particle.endColorVar=endColorVar;
+  particle.startSize=20.00;
+  particle.startSizeVar=20.00;
+  particle.endSize=-1.00;
+  particle.endSizeVar=0.00;
+  particle.gravity=ccp(0.00,0.00);
+  particle.radialAccel=0.00;
+  particle.radialAccelVar=0.00;
+  particle.speed=70;
+  particle.speedVar=40;
+  particle.tangentialAccel= 0;
+  particle.tangentialAccelVar= 0;
+  particle.totalParticles=1000;
+  particle.life=0.50;
+  particle.lifeVar=0.50;
+  particle.startSpin=0.00;
+  particle.startSpinVar=0.00;
+  particle.endSpin=0.00;
+  particle.endSpinVar=0.00;
+  //position 변경
+  particle.position=ccp(0.00,0.00);
+  particle.posVar=ccp(0.00,0.00);
+  
+  //자신에 추가한다.
+  [self addChild:particle];
+  //1초 뒤에 부모노드에서 삭제한다.
+  [self scheduleOnce:@selector(removeFromParent) delay:1.0];
 }
 @end
 

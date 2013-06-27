@@ -209,6 +209,7 @@
 		CE98CAE6177C34F40010429D /* GB2ShapeCache.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE98CAE5177C34F40010429D /* GB2ShapeCache.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CE98CAE8177C35860010429D /* collision.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE98CAE7177C35860010429D /* collision.plist */; };
 		CE98CAEB177C35C40010429D /* MyContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE98CAE9177C35C40010429D /* MyContactListener.mm */; };
+		CE98CAED177C3F240010429D /* particle.png in Resources */ = {isa = PBXBuildFile; fileRef = CE98CAEC177C3F240010429D /* particle.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -622,6 +623,7 @@
 		CE98CAE7177C35860010429D /* collision.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = collision.plist; sourceTree = "<group>"; };
 		CE98CAE9177C35C40010429D /* MyContactListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MyContactListener.mm; sourceTree = "<group>"; };
 		CE98CAEA177C35C40010429D /* MyContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyContactListener.h; sourceTree = "<group>"; };
+		CE98CAEC177C3F240010429D /* particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -730,6 +732,7 @@
 		CE4867F2177BADA40053C537 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE98CAEC177C3F240010429D /* particle.png */,
 				CE98CAE7177C35860010429D /* collision.plist */,
 				CE1782F6177C337400B566E2 /* background_music.mp3 */,
 				CE1782F7177C337400B566E2 /* explosion.wav */,
@@ -1351,6 +1354,7 @@
 				CE1782FC177C337400B566E2 /* mon_damage.wav in Resources */,
 				CE1782FD177C337400B566E2 /* mon_die.wav in Resources */,
 				CE98CAE8177C35860010429D /* collision.plist in Resources */,
+				CE98CAED177C3F240010429D /* particle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
