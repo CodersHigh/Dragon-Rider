@@ -7,7 +7,7 @@
 //
 
 #import "GameLayer.h"
-
+#import "Enemy.h"
 
 @implementation GameLayer
 
@@ -26,6 +26,9 @@
     
     //플레이어 캐릭터 초기화
     [self initPlayer];
+    
+    //적 초기화
+    [self initEnemys];
   }
   return self;
 }
@@ -66,6 +69,27 @@
   _player = [Player node];
   //가장 위에 위치 시킨다.
   [self addChild:_player z:99];
+}
+
+#define kMaxMonster 5 //기본 적의 수
+
+- (void)initEnemys {
+  //적을 저장할 배열을 생성한다.
+  enemysArray = [[CCArray alloc] initWithCapacity:kMaxMonster];
+  //화면을 균등하게 나눈다.
+  float width = winSize.width / kMaxMonster;
+  
+  //적의 최대 갯수 만큼 화면에 나타내고, 배열에 저장
+  for ( int i = 0; i < kMaxMonster ; i++ ) {
+    //적 노드를 생성.
+    Enemy *enemy = [Enemy node];
+    //화면에 위치 시킨다.
+    [self addChild:enemy z:98];
+    //균등하게 나눈 화면에서 가운데에 위치 시킨다.
+    enemy.position = ccp( i * width + width / 2, winSize.height + enemy.boundingBox.size.height / 2);
+    //그리고 나중에 충돌 등을 위해 배열에 넣는다.
+    [enemysArray addObject:enemy];
+  }
 }
 
 - (void)onEnter {
