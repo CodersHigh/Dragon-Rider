@@ -634,6 +634,12 @@ NSInteger ccLoadFileIntoMemory(const char *filename, unsigned char **out)
 	[_suffixesDict setObject:suffix forKey:kCCFileUtilsiPhoneHD];
 }
 
+// iPhone 5 전용 이미지 지원
+-(void) setiPhone5RetinaDisplaySuffix:(NSString *)suffix
+{
+	[_suffixesDict setObject:suffix forKey:kCCFileUtilsiPhone5HD];
+}
+
 #endif // __CC_PLATFORM_IOS
 
 

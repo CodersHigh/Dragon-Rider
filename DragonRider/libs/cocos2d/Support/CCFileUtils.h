@@ -180,6 +180,14 @@ enum {
  */
 -(void) setiPhoneRetinaDisplaySuffix:(NSString*)iPhoneRetinaDisplaySuffix;
 
+/** The iPhone5 RetinaDisplay suffixes to load resources.
+ By default it is "-5hd" and "" in that order.
+ Only valid on iOS. Not valid for OS X.
+ 
+ @since v2.1
+ */
+-(void) setiPhone5RetinaDisplaySuffix:(NSString*)iPhoneRetinaDisplaySuffix;
+
 /** The iPad suffixes to load resources.
  By default it is "-ipad", "-hd", "", in that order.
  Only valid on iOS. Not valid for OS X.

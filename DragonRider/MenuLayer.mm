@@ -29,33 +29,21 @@
     //다이렉터에서 화면의 크기를 알아온다.
     CGSize size = [[CCDirector sharedDirector] winSize];
     
-    //제목으로 만들 레이블을 시스템 폰트를 사용해서 만든다.
-    CCLabelTTF *label = [CCLabelTTF labelWithString:@"Dragon Rider" fontName:@"HelveticaNeue" fontSize:36];
-    //레이블의 위치를 지정한다.
-    label.position = ccp( size.width/2, size.height/2 + 100 );
-    //레이블을 자식으로 추가한다.
-    [self addChild:label];
+    //배경화면 스프라이트 설정
+    CCSprite *backgroundSprite = [CCSprite spriteWithFile:@"Default.png"];
+    backgroundSprite.anchorPoint = ccp(0, 0);
+    [self addChild:backgroundSprite];
     
-    CCLabelTTF *label2 = [CCLabelTTF labelWithString:@"Made by @krazyeom" fontName:@"HelveticaNeue" fontSize:30];
-    //레이블의 위치를 지정한다.
-    label2.position = ccp( size.width/2, size.height/2 + 60 );
-    //레이블을 자식으로 추가한다.
-    [self addChild:label2];
-    
-    //메뉴 아이템의 폰트를 변경한다.
-    [CCMenuItemFont setFontName:@"AppleSDGothicNeo-Medium"];
-    //메뉴 아이템 블럭
-    CCMenuItem *startItem = [CCMenuItemFont itemWithString:@"Start" block:^(id sender)  {
-      //Start 메뉴 버튼이 눌렸을 경우, GameScene을 화면 전환과 함께 호출한다.
+    //이미지를 사용해서 기본, 선택되었을 때 메뉴 아이템 생성
+    CCMenuItemImage *startItem = [CCMenuItemImage itemWithNormalImage:@"start_btn_normal.png" selectedImage:@"start_btn_selected.png" disabledImage:nil block:^(id sender) {
       [[CCDirector sharedDirector] replaceScene:[GameScene node]];
     }];
-    
     //메뉴 버튼을 메뉴에 추가한다.
     CCMenu *menu = [CCMenu menuWithItems:startItem, nil];
     //세로 정렬로 각 메뉴의 사잇값으로 20을 준다.
     [menu alignItemsVerticallyWithPadding:20];
     //메뉴의 위치를 지정한다.
-    [menu setPosition:ccp( size.width/2, size.height/2 - 50)];
+    [menu setPosition:ccp( size.width/2, 100)];
     //메뉴를 자식으로 추가한다.
     [self addChild:menu];
   }
