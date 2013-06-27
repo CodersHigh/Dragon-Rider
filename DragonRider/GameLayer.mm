@@ -16,6 +16,12 @@
 
 #import "GLES-Render.h"
 
+//점수와 관련된 헤더파일을 임포트 한다.
+#import "AppDelegate.h"
+#import "HighScore.h"
+#import "HighScoreLayer.h"
+#import "HighScoreInputViewController.h"
+
 @implementation GameLayer
 
 -(id)init
@@ -309,8 +315,20 @@
     CCDelayTime *delay = [CCDelayTime actionWithDuration:2.0f];
     //딜레이후 메뉴로 나가기 위한 엑션 블럭
     CCCallBlock *block = [CCCallBlock actionWithBlock:^{
-      //메뉴 레이어로 돌아간다.
-      [[CCDirector sharedDirector] replaceScene:[MenuLayer scene]];
+      //10위안에 들어가는 점수인지 확인한다.
+      HighScore *highScore = [HighScore new];
+      if ([highScore isHighScore:score - 1] == YES) {
+        
+        //입력값을 받을 수 있는 뷰 콘트롤러 생성
+        HighScoreInputViewController *viewController = [HighScoreInputViewController new];
+        viewController.gamePoint = score - 1;
+        AppController *app = (AppController *)[[UIApplication sharedApplication] delegate];
+        //현재 네비게이션 콘트롤러에 푸쉬로 뷰 콘트롤러를 호출한다.
+        [app.navController pushViewController:viewController animated:YES];
+      }else{
+        //점수 레이어로 돌아간다.
+        [[CCDirector sharedDirector] replaceScene:[HighScoreLayer scene]];
+      }
     }];
     //엑션을 순서대로 준비.
     CCSequence *seq = [CCSequence actions:allStop, delay, block, nil];

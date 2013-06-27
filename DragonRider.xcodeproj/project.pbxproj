@@ -212,6 +212,9 @@
 		CE98CAED177C3F240010429D /* particle.png in Resources */ = {isa = PBXBuildFile; fileRef = CE98CAEC177C3F240010429D /* particle.png */; };
 		CE98CAF0177C3FBF0010429D /* font.fnt in Resources */ = {isa = PBXBuildFile; fileRef = CE98CAEE177C3FBF0010429D /* font.fnt */; };
 		CE98CAF1177C3FBF0010429D /* font.png in Resources */ = {isa = PBXBuildFile; fileRef = CE98CAEF177C3FBF0010429D /* font.png */; };
+		CE98CB1D177C43DD0010429D /* HighScore.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98CB18177C43DD0010429D /* HighScore.m */; };
+		CE98CB1E177C43DD0010429D /* HighScoreLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE98CB1A177C43DD0010429D /* HighScoreLayer.mm */; };
+		CE98CB1F177C43DD0010429D /* HighScoreInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98CB1C177C43DD0010429D /* HighScoreInputViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -628,6 +631,12 @@
 		CE98CAEC177C3F240010429D /* particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle.png; sourceTree = "<group>"; };
 		CE98CAEE177C3FBF0010429D /* font.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = font.fnt; sourceTree = "<group>"; };
 		CE98CAEF177C3FBF0010429D /* font.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = font.png; sourceTree = "<group>"; };
+		CE98CB17177C43DD0010429D /* HighScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScore.h; sourceTree = "<group>"; };
+		CE98CB18177C43DD0010429D /* HighScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScore.m; sourceTree = "<group>"; };
+		CE98CB19177C43DD0010429D /* HighScoreLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreLayer.h; sourceTree = "<group>"; };
+		CE98CB1A177C43DD0010429D /* HighScoreLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HighScoreLayer.mm; sourceTree = "<group>"; };
+		CE98CB1B177C43DD0010429D /* HighScoreInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreInputViewController.h; sourceTree = "<group>"; };
+		CE98CB1C177C43DD0010429D /* HighScoreInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreInputViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -726,6 +735,12 @@
 				CE1782F4177C318F00B566E2 /* HUDLayer.mm */,
 				CE98CAEA177C35C40010429D /* MyContactListener.h */,
 				CE98CAE9177C35C40010429D /* MyContactListener.mm */,
+				CE98CB17177C43DD0010429D /* HighScore.h */,
+				CE98CB18177C43DD0010429D /* HighScore.m */,
+				CE98CB19177C43DD0010429D /* HighScoreLayer.h */,
+				CE98CB1A177C43DD0010429D /* HighScoreLayer.mm */,
+				CE98CB1B177C43DD0010429D /* HighScoreInputViewController.h */,
+				CE98CB1C177C43DD0010429D /* HighScoreInputViewController.m */,
 				CE4867F2177BADA40053C537 /* Resources */,
 				CE48680A177BADA40053C537 /* libs */,
 				CE486A11177BADA60053C537 /* Supporting Files */,
@@ -1542,6 +1557,9 @@
 				CE1782F5177C318F00B566E2 /* HUDLayer.mm in Sources */,
 				CE98CAE6177C34F40010429D /* GB2ShapeCache.mm in Sources */,
 				CE98CAEB177C35C40010429D /* MyContactListener.mm in Sources */,
+				CE98CB1D177C43DD0010429D /* HighScore.m in Sources */,
+				CE98CB1E177C43DD0010429D /* HighScoreLayer.mm in Sources */,
+				CE98CB1F177C43DD0010429D /* HighScoreInputViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
