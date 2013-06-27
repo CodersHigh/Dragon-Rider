@@ -38,16 +38,21 @@
     //중간 정도로 위치 시킨다.
     _rightWing.position = ccp( self.boundingBox.size.width - 10, self.boundingBox.size.height / 2 );
     [self addChild:_rightWing];
+    
+    //에너지 게이지 객채를 생성한다.
+    _gauge = [EnergyGauge initWithMaxSize:CGSizeMake(self.boundingBox.size.width, 10) maxValue:100];
+    //에너지 게이지를 자식으로 추가.
+    [self addChild:_gauge];
   }
   return self;
 }
 
 -(void)update:(ccTime)dt {
-  // 1. 적의 움직임 가속도 값
+  //적의 움직임 가속도 값
   CGPoint enemyScrollVel = ccp(0, -250);
-  // 2. 현재 적의 위치 값
+  //현재 적의 위치 값
   CGPoint enemyPos = [self position];
-  // 3. 화면 아래로 벗어나는지 체크
+  //화면 아래로 벗어나는지 체크
   if (enemyPos.y + self.boundingBox.size.height / 2 <= 0) {
     //벗어나면 리셋 한다.
     [self reset];
@@ -100,12 +105,39 @@
     default:
       break;
   }
+  
+  //게이지 바를 초기화 한다.
+  [_gauge updateBar:_energy];
 }
 
 -(void)onEnter{
   [super onEnter];
   //스케쥴러 호출
   [self scheduleUpdate];
+}
+
+-(NSInteger)attackedWithPoint:(NSInteger)point {
+  //공격 받은 숫자 만큼 에너지를 줄여준다.
+  _energy -= point;
+  
+  //게이지 업데이트
+  [_gauge updateBar:_energy];
+  
+  //0이하로 되면 0을 아니면 현재 에너지를 반환
+  if ( _energy <= 0 ) {
+    //죽으면 숨긴다
+    [self destroy];
+  }
+  return _energy;
+}
+
+-(void)destroy {
+  //적이 죽으면 상태 값을 변경
+  _state = kDestoryed;
+  //에너지는 0으로 한다.
+  _energy = 0;
+  //그리고 숨긴다.
+  self.visible = NO;
 }
 
 @end

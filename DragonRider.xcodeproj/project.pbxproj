@@ -199,6 +199,7 @@
 		CE486A46177BB7F90053C537 /* Player.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE486A45177BB7F90053C537 /* Player.mm */; };
 		CE486A4C177BBAEC0053C537 /* Enemy.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE486A4B177BBAEC0053C537 /* Enemy.mm */; };
 		CE486A4F177BBCEC0053C537 /* Bullet.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE486A4E177BBCEC0053C537 /* Bullet.mm */; };
+		CE486A52177BBFDF0053C537 /* EnergyGauge.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE486A51177BBFDF0053C537 /* EnergyGauge.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -597,6 +598,8 @@
 		CE486A4B177BBAEC0053C537 /* Enemy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Enemy.mm; sourceTree = "<group>"; };
 		CE486A4D177BBCEC0053C537 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
 		CE486A4E177BBCEC0053C537 /* Bullet.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Bullet.mm; sourceTree = "<group>"; };
+		CE486A50177BBFDE0053C537 /* EnergyGauge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnergyGauge.h; sourceTree = "<group>"; };
+		CE486A51177BBFDF0053C537 /* EnergyGauge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EnergyGauge.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -675,6 +678,8 @@
 				CE486A45177BB7F90053C537 /* Player.mm */,
 				CE486A4A177BBAEC0053C537 /* Enemy.h */,
 				CE486A4B177BBAEC0053C537 /* Enemy.mm */,
+				CE486A50177BBFDE0053C537 /* EnergyGauge.h */,
+				CE486A51177BBFDF0053C537 /* EnergyGauge.mm */,
 				CE486A4D177BBCEC0053C537 /* Bullet.h */,
 				CE486A4E177BBCEC0053C537 /* Bullet.mm */,
 				CE4867F2177BADA40053C537 /* Resources */,
@@ -1472,6 +1477,7 @@
 				CE486A46177BB7F90053C537 /* Player.mm in Sources */,
 				CE486A4C177BBAEC0053C537 /* Enemy.mm in Sources */,
 				CE486A4F177BBCEC0053C537 /* Bullet.mm in Sources */,
+				CE486A52177BBFDF0053C537 /* EnergyGauge.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

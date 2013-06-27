@@ -9,6 +9,7 @@
 #import "GameLayer.h"
 #import "Enemy.h"
 #import "Bullet.h"
+#import "MenuLayer.h"
 
 @implementation GameLayer
 
@@ -75,6 +76,58 @@
   } else{
     _backgroundImage1.position = ccpAdd(ccpMult(backgroundScrollVel, dt), _backgroundImage1.position);
     _backgroundImage2.position = ccpAdd(ccpMult(backgroundScrollVel, dt), _backgroundImage2.position);
+  }
+  
+  //총알과 적 캐릭터와 충돌을 체크하기 위해서 배열에서 적을 하나 꺼낸다.
+  for (Enemy *enemy in enemysArray) {
+    //적이 죽은 상태이면 그냥 넘어간다.
+    if (!enemy.state) continue;
+    
+    //총알을 하나 배열에서 꺼낸다
+    for (Bullet *bullet in bulletsArray) {
+      //총알이 적에 맞아서 없어진 상태면 그냥 넘어간다.
+      if (!bullet.visible) continue;
+      
+      //총알과 적이 충돌이 나는지를 체크
+      if (!isCollision && CGRectIntersectsRect(bullet.boundingBox, enemy.boundingBox)){
+        //총알을 없애고
+        bullet.visible = NO;
+        //미사일로 적을 공격해서 0점을 받아오는지를 체크
+        if (![enemy attackedWithPoint:[bullet bulletType]]){
+        }
+      }
+    }
+    
+    //적과 플레이어 캐릭터가 충돌하는지를 체크
+    if (!isCollision && CGRectIntersectsRect(enemy.boundingBox, _player.boundingBox)) {
+      isCollision = YES;
+      if (isCollision){
+        _player.visible = NO;
+        // 충돌하게되면 총알을 다 없앤다.
+        [self unschedule:@selector(updateBullet)];
+        for (Bullet *bullet in bulletsArray) {
+          bullet.visible = NO;
+          [bullet removeFromParentAndCleanup:YES];
+        }
+        
+        CCCallBlock *allStop = [CCCallBlock actionWithBlock:^{
+          //터치 이벤트를 더이상 받지 않는다.
+          [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+        }];
+        
+        //딜레이를 위한 엑션
+        CCDelayTime *delay = [CCDelayTime actionWithDuration:2.0f];
+        //딜레이후 메뉴로 나가기 위한 엑션 블럭
+        CCCallBlock *block = [CCCallBlock actionWithBlock:^{
+          //메뉴 레이어로 돌아간다.
+          [[CCDirector sharedDirector] replaceScene:[MenuLayer scene]];
+        }];
+        //엑션을 순서대로 준비.
+        CCSequence *seq = [CCSequence actions:allStop, delay, block, nil];
+        //엑션 실행
+        [self runAction:seq];
+      }
+    }
   }
 }
 

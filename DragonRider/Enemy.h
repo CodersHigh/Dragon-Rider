@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "EnergyGauge.h"
 
 //두 종류의 적
 typedef enum {
@@ -35,7 +36,10 @@ typedef enum {
 @property (nonatomic, weak) CCSprite *leftWing;
 //오른쪽 날개
 @property (nonatomic, weak) CCSprite *rightWing;
+//에너지 게이지
+@property (nonatomic, strong) EnergyGauge *gauge;
 
 -(void)reset;
+-(NSInteger)attackedWithPoint:(NSInteger)point;
 
 @end

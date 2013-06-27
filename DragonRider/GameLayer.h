@@ -13,18 +13,21 @@
 @interface GameLayer : CCLayer {
   //화면 크기를 저장
   CGSize winSize;
-
+  
   //이전 위치값 저장
   CGPoint previousPoint;
   
   //적을 담을 배열
   CCArray *enemysArray;
-
+  
   //총알을 담을 배열
   CCArray *bulletsArray;
   //마지막 총알 확인용
   int lastBullet;
-
+  
+  // 충돌된 상태인지를 체크
+  BOOL isCollision;
+  
 }
 
 //두 장의 배경 스프라이트
