@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "Player.h"
+#import "HUDLayer.h"
 
 @interface GameLayer : CCLayer {
   //화면 크기를 저장
@@ -28,6 +29,8 @@
   // 충돌된 상태인지를 체크
   BOOL isCollision;
   
+  //점수를 위한 변수
+  int score;
 }
 
 //두 장의 배경 스프라이트
@@ -37,5 +40,6 @@
 @property (nonatomic, weak) Player *player;
 //배치노드
 @property (nonatomic, weak) CCSpriteBatchNode *batchNode;
+@property (nonatomic, weak) HUDLayer *hud;
 
 @end

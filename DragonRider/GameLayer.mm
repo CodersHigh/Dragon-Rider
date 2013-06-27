@@ -119,6 +119,9 @@
           [bullet removeFromParentAndCleanup:YES];
         }
         
+        // 충돌하게되면 점수 업데이트를 멈춘다.
+        [self unschedule:@selector(updateScore:)];
+        
         //적이 폭발되면 먼지를 뿌려주기위한 노드 생성
         Dust *dust = [Dust node];
         //위치는 적이 폭발된 위치
@@ -205,6 +208,8 @@
   [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
   //총알을 위한 스케쥴
   [self schedule:@selector(updateBullet:) interval:0.05f];
+  //점수를 위한 스케쥴
+  [self schedule:@selector(updateScore:) interval:0.01f];
 }
 
 #pragma mark Touch
@@ -245,6 +250,11 @@
   if (++lastBullet == kMaxBullet) {
     lastBullet = 0;
   }
+}
+
+-(void)updateScore:(ccTime)dt{
+  //일정 시간마다 점수를 올려준다.
+  [_hud setScoreText:score++];
 }
 
 @end
