@@ -11,6 +11,7 @@
 #import "Bullet.h"
 #import "MenuLayer.h"
 #import "Dust.h"
+#import "SimpleAudioEngine.h"
 
 @implementation GameLayer
 
@@ -93,8 +94,16 @@
       if (!isCollision && CGRectIntersectsRect(bullet.boundingBox, enemy.boundingBox)){
         //총알을 없애고
         bullet.visible = NO;
+        
+        //사운드 효과를 재생한다.
+        [[SimpleAudioEngine sharedEngine] playEffect:@"mon_damage.wav"];
+        
         //미사일로 적을 공격해서 0점을 받아오는지를 체크
         if (![enemy attackedWithPoint:[bullet bulletType]]){
+          
+          //사운드 효과를 재생한다.
+          [[SimpleAudioEngine sharedEngine] playEffect:@"mon_die.wav"];
+          
           //적이 폭발하면 먼지를 뿌려주기위한 노드 생성
           Dust *dust = [Dust node];
           //위치는 적이 폭발한 위치
@@ -111,6 +120,10 @@
     if (!isCollision && CGRectIntersectsRect(enemy.boundingBox, _player.boundingBox)) {
       isCollision = YES;
       if (isCollision){
+        
+        //플레이어 캐릭터가 죽을 때 폭발 효과음 재생
+        [[SimpleAudioEngine sharedEngine] playEffect:@"explosion.wav"];
+        
         _player.visible = NO;
         // 충돌하게되면 총알을 다 없앤다.
         [self unschedule:@selector(updateBullet)];
@@ -134,6 +147,8 @@
         CCCallBlock *allStop = [CCCallBlock actionWithBlock:^{
           //터치 이벤트를 더이상 받지 않는다.
           [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+          //배경음악을 멈춘다.
+          [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
         }];
         
         //딜레이를 위한 엑션
@@ -210,6 +225,8 @@
   [self schedule:@selector(updateBullet:) interval:0.05f];
   //점수를 위한 스케쥴
   [self schedule:@selector(updateScore:) interval:0.01f];
+  //시작 되면 배경 음악이 재생
+  [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"background_music.mp3" loop:YES];
 }
 
 #pragma mark Touch

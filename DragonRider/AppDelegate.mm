@@ -10,6 +10,7 @@
 
 #import "AppDelegate.h"
 #import "IntroLayer.h"
+#import "SimpleAudioEngine.h"
 
 @implementation MyNavigationController
 
@@ -139,6 +140,16 @@
 	
 	// make main window visible
 	[window_ makeKeyAndVisible];
+  
+  // 배경음악을 위한 음악
+  [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"background_music.mp3"];
+  
+  // 적이 죽을 경우을 위한 사운드 효과
+  [[SimpleAudioEngine sharedEngine] preloadEffect:@"mon_die.wav"];
+  // 적이 피해를 입었을 경우을 위한 사운드 효과
+  [[SimpleAudioEngine sharedEngine] preloadEffect:@"mon_damage.wav"];
+  // 플레이어가 죽을 경우을 위한 사운드 효과
+  [[SimpleAudioEngine sharedEngine] preloadEffect:@"explosion.wav"];
 	
 	return YES;
 }
