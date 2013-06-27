@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE454A81177BE845008155C9 /* Dust.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE454A80177BE845008155C9 /* Dust.mm */; };
 		CE4867DE177BADA40053C537 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4867DD177BADA40053C537 /* QuartzCore.framework */; };
 		CE4867E0177BADA40053C537 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4867DF177BADA40053C537 /* OpenGLES.framework */; };
 		CE4867E2177BADA40053C537 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4867E1177BADA40053C537 /* OpenAL.framework */; };
@@ -203,6 +204,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE454A7F177BE845008155C9 /* Dust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dust.h; sourceTree = "<group>"; };
+		CE454A80177BE845008155C9 /* Dust.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Dust.mm; sourceTree = "<group>"; };
 		CE4867DA177BADA40053C537 /* DragonRider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DragonRider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4867DD177BADA40053C537 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CE4867DF177BADA40053C537 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -682,6 +685,8 @@
 				CE486A51177BBFDF0053C537 /* EnergyGauge.mm */,
 				CE486A4D177BBCEC0053C537 /* Bullet.h */,
 				CE486A4E177BBCEC0053C537 /* Bullet.mm */,
+				CE454A7F177BE845008155C9 /* Dust.h */,
+				CE454A80177BE845008155C9 /* Dust.mm */,
 				CE4867F2177BADA40053C537 /* Resources */,
 				CE48680A177BADA40053C537 /* libs */,
 				CE486A11177BADA60053C537 /* Supporting Files */,
@@ -1478,6 +1483,7 @@
 				CE486A4C177BBAEC0053C537 /* Enemy.mm in Sources */,
 				CE486A4F177BBCEC0053C537 /* Bullet.mm in Sources */,
 				CE486A52177BBFDF0053C537 /* EnergyGauge.mm in Sources */,
+				CE454A81177BE845008155C9 /* Dust.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

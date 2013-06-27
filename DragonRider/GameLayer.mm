@@ -10,6 +10,7 @@
 #import "Enemy.h"
 #import "Bullet.h"
 #import "MenuLayer.h"
+#import "Dust.h"
 
 @implementation GameLayer
 
@@ -94,6 +95,14 @@
         bullet.visible = NO;
         //미사일로 적을 공격해서 0점을 받아오는지를 체크
         if (![enemy attackedWithPoint:[bullet bulletType]]){
+          //적이 폭발하면 먼지를 뿌려주기위한 노드 생성
+          Dust *dust = [Dust node];
+          //위치는 적이 폭발한 위치
+          dust.position = enemy.position;
+          //화면에 뿌려주기 위해 자식노드로 추가
+          [self addChild:dust];
+          //폭발하는 애니메이션 실행
+          [dust animateDusts];
         }
       }
     }
@@ -109,6 +118,15 @@
           bullet.visible = NO;
           [bullet removeFromParentAndCleanup:YES];
         }
+        
+        //적이 폭발되면 먼지를 뿌려주기위한 노드 생성
+        Dust *dust = [Dust node];
+        //위치는 적이 폭발된 위치
+        dust.position = _player.position;
+        //화면에 뿌려주기 위해 자식노드로 추가
+        [self addChild:dust z:1000];
+        //폭발하는 애니메이션 실행
+        [dust animateExplosions];
         
         CCCallBlock *allStop = [CCCallBlock actionWithBlock:^{
           //터치 이벤트를 더이상 받지 않는다.
